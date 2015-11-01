@@ -1,8 +1,8 @@
-/*
-¨~
-©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´
-©¦          ©¦
-©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼
+ï»¿/*
+â–‡
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚          â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 */
 
 
@@ -11,8 +11,8 @@
 #include <windows.h>
 #include <conio.h>
 
-int moveI = 3;	//ÏòÉÏÒÆ¶¯Ò»¸ñ£¬×ÔÔö1
-int moveJ = -4;	//Ïò×óÒÆ¶¯Ò»¸ñ£¬×ÔÔö1
+int moveI = 3;	//å‘ä¸Šç§»åŠ¨ä¸€æ ¼ï¼Œè‡ªå¢1
+int moveJ = -4;	//å‘å·¦ç§»åŠ¨ä¸€æ ¼ï¼Œè‡ªå¢1
 
 int board[21][11] = {0};
 int presentGraph[4][4] = { 0 };
@@ -94,26 +94,26 @@ void printBoard(void)
 
 	system("cls");
 
-	printf("©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´\n");
+	printf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”\n");
 	for (i = 1; i <= 20; i++)
 	{
 		for (j = 0; j <= 11; j++)
 		{
 			if (0 == j)
 			{
-				printf("©¦");
+				printf("â”‚");
 			}
 			else if (11 == j)
 			{
-				printf("©¦\n");
+				printf("â”‚\n");
 			}
 			else if (moveI + i >= 0 && moveI + i <= 3 && moveJ + j >= 0 && moveJ + j <= 3 && 1 == (board[i][j] + presentGraph[moveI + i][moveJ + j]))
 			{
-				printf("¨~");
+				printf("â–‡");
 			}
 			else if (1 == board[i][j])
 			{
-				printf("¨~");
+				printf("â–‡");
 			}
 			else
 			{
@@ -121,7 +121,7 @@ void printBoard(void)
 			}
 		}
 	}
-	printf("©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼");
+	printf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜");
 }
 
 void randGraph(void)

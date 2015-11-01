@@ -1,23 +1,23 @@
-/* ¨~ */
+ï»¿/* â–‡ */
 
 # include <stdio.h>
 # include <stdlib.h>
 # include <time.h>
 
 
-# define SIZE_OF_MINE 13	//À×ÇøµÄ±ß³¤
-# define NUM_OF_MINE 20		//µØÀ×µÄ¸öÊı
+# define SIZE_OF_MINE 13	//é›·åŒºçš„è¾¹é•¿
+# define NUM_OF_MINE 20		//åœ°é›·çš„ä¸ªæ•°
 
 
-int mine[SIZE_OF_MINE + 1][SIZE_OF_MINE + 1] = { 0 };	//¼ÍÂ¼À×ÇøÃ¿¸öµãÎª¿Õ(0)¡¢Êı×Ö(1~8)¡¢À×(>=9)
-int mine_copy[SIZE_OF_MINE + 1][SIZE_OF_MINE + 1] = { 0 };	//¼ÍÂ¼À×ÇøÃ¿¸öµãÊÇ·ñÒÑ¾­ÏÔÊ¾³öÀ´£¬Òş²Ø0£¬ÏÔÊ¾1
-int mine_note[NUM_OF_MINE][2];	 //¼ÍÂ¼µØÀ×µÄ×ø±ê
+int mine[SIZE_OF_MINE + 1][SIZE_OF_MINE + 1] = { 0 };	//çºªå½•é›·åŒºæ¯ä¸ªç‚¹ä¸ºç©º(0)ã€æ•°å­—(1~8)ã€é›·(>=9)
+int mine_copy[SIZE_OF_MINE + 1][SIZE_OF_MINE + 1] = { 0 };	//çºªå½•é›·åŒºæ¯ä¸ªç‚¹æ˜¯å¦å·²ç»æ˜¾ç¤ºå‡ºæ¥ï¼Œéšè—0ï¼Œæ˜¾ç¤º1
+int mine_note[NUM_OF_MINE][2];	 //çºªå½•åœ°é›·çš„åæ ‡
 
 
-void init_game(void);	//³õÊ¼»¯ÓÎÏ·
-void rand_mine(int num_of_mine);	//Ëæ»úÉú³ÉµØÀ×
-void print_mine(void);	//´òÓ¡¡°À×Çø¡±
-void is_zero(int x, int y);	//ÅĞ¶ÏÓÃ»§ÊäÈëµÄµãÊÇ·ñÎª¡°0µã¡±£¬Èç¹ûÊÇ£¬Ôòµİ¹é½«¸½½üµÄ¡°0µãÏÔÊ¾³öÀ´¡±
+void init_game(void);	//åˆå§‹åŒ–æ¸¸æˆ
+void rand_mine(int num_of_mine);	//éšæœºç”Ÿæˆåœ°é›·
+void print_mine(void);	//æ‰“å°â€œé›·åŒºâ€
+void is_zero(int x, int y);	//åˆ¤æ–­ç”¨æˆ·è¾“å…¥çš„ç‚¹æ˜¯å¦ä¸ºâ€œ0ç‚¹â€ï¼Œå¦‚æœæ˜¯ï¼Œåˆ™é€’å½’å°†é™„è¿‘çš„â€œ0ç‚¹æ˜¾ç¤ºå‡ºæ¥â€
 
 
 int main(void)
@@ -26,13 +26,13 @@ int main(void)
 	int cout = 0;
 
 	system("mode con cols=30 lines=20");
-	printf("ÕıÔÚÉú³ÉÀ×Çø£¬ÇëÉÔºó¡­¡­\n");
+	printf("æ­£åœ¨ç”Ÿæˆé›·åŒºï¼Œè¯·ç¨åâ€¦â€¦\n");
 
 	init_game();
 
 	while (1)
 	{
-		printf("ÇëÊäÈëÒªÑ¡ÔñµÄµãµÄ×ø±ê£¬×óÉÏ½ÇÎª1£¬1£º");
+		printf("è¯·è¾“å…¥è¦é€‰æ‹©çš„ç‚¹çš„åæ ‡ï¼Œå·¦ä¸Šè§’ä¸º1ï¼Œ1ï¼š");
 		scanf("%d%d", &x, &y);
 		if (mine[x][y] < 9 && mine[x][y] > 0)
 		{
@@ -82,12 +82,12 @@ int main(void)
 
 void init_game(void)
 {
-	/* Ëæ»úÉú³ÉµØÀ×Î»ÖÃ */
+	/* éšæœºç”Ÿæˆåœ°é›·ä½ç½® */
 	rand_mine(NUM_OF_MINE);
 
 	system("cls");
 
-	/* ´òÓ¡¡°À×Çø¡± */
+	/* æ‰“å°â€œé›·åŒºâ€ */
 	print_mine();
 
 	return;
@@ -112,7 +112,7 @@ void print_mine(void)
 			}
 			else
 			{
-				printf("¨~");
+				printf("â–‡");
 			}
 		}
 
@@ -127,7 +127,7 @@ void rand_mine(int num_of_mine)
 	int i, j;
 	int cout = 0;
 
-	/* Ëæ»úÉú³ÉµØÀ×µÄ×ø±ê */
+	/* éšæœºç”Ÿæˆåœ°é›·çš„åæ ‡ */
 	srand((int)time(NULL) * 189);
 	while (num_of_mine--)
 	{
@@ -135,20 +135,20 @@ void rand_mine(int num_of_mine)
 		{
 			i = 1 + SIZE_OF_MINE * rand() / RAND_MAX;
 			j = 1 + SIZE_OF_MINE * rand() / RAND_MAX;
-			if (9 != mine[i][j])	//9´ú±í¸ÃµãÎªµØÀ×
+			if (9 != mine[i][j])	//9ä»£è¡¨è¯¥ç‚¹ä¸ºåœ°é›·
 			{
 				mine[i][j] = 9;
 				break;
 			}
 		}
 
-		/* ½«µØÀ×µÄ×ø±ê¼ÍÂ¼ÏÂÀ´ */
+		/* å°†åœ°é›·çš„åæ ‡çºªå½•ä¸‹æ¥ */
 		mine_note[cout][0] = i;
 		mine_note[cout][1] = j;
 		cout++;
 	}
 
-	/* ¼ÆËã³öÃ¿¸öµãµÄÊıÖµ£¬µØÀ×ÖÜÎ§µÄµã×ÔÔö1 */
+	/* è®¡ç®—å‡ºæ¯ä¸ªç‚¹çš„æ•°å€¼ï¼Œåœ°é›·å‘¨å›´çš„ç‚¹è‡ªå¢1 */
 	for (i = 1; i <= SIZE_OF_MINE; i++)
 	{
 		for (j = 1; j <= SIZE_OF_MINE; j++)

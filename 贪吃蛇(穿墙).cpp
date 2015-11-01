@@ -1,4 +1,4 @@
-//¨~ £ºÓÃÓÚ×é³ÉÉßÉíµÄ·ûºÅ
+ï»¿//â–‡ ï¼šç”¨äºç»„æˆè›‡èº«çš„ç¬¦å·
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -7,22 +7,22 @@
 # include <conio.h>
 
 
-# define INIT_LENGTH 4		//Éß³õÊ¼»¯µÄ³¤¶È
+# define INIT_LENGTH 4		//è›‡åˆå§‹åŒ–çš„é•¿åº¦
 # define DEBUG 0
 
 
-char direction = 'd';		//¼ÍÂ¼ÉßÒÆ¶¯µÄ·½Ïò£¬a¡ª¡ª×ó£¬w¡ª¡ªÉÏ£¬d¡ª¡ªÓÒ£¬s¡ª¡ªÏÂ
-int length = 0;		//¼ÍÂ¼ÉßµÄ³¤¶È
+char direction = 'd';		//çºªå½•è›‡ç§»åŠ¨çš„æ–¹å‘ï¼Œaâ€”â€”å·¦ï¼Œwâ€”â€”ä¸Šï¼Œdâ€”â€”å³ï¼Œsâ€”â€”ä¸‹
+int length = 0;		//çºªå½•è›‡çš„é•¿åº¦
 
-/* ÓÃÓÚ±íÊ¾×é³ÉÉßÉíµÄµãµÄ½á¹¹Ìå */
+/* ç”¨äºè¡¨ç¤ºç»„æˆè›‡èº«çš„ç‚¹çš„ç»“æ„ä½“ */
 typedef struct body
 {
 	int x;
 	int y;
 }body_t, * pBody_t;
 
-body_t snake[300];		//ÓÃÓÚ´¢´æÉßÉíµÄÊı×é
-body_t randPoint = { 0, 0 };		//´¢´æËæ»ú³öÏÖµÄµã
+body_t snake[300];		//ç”¨äºå‚¨å­˜è›‡èº«çš„æ•°ç»„
+body_t randPoint = { 0, 0 };		//å‚¨å­˜éšæœºå‡ºç°çš„ç‚¹
 
 
 void init_game(void);
@@ -41,7 +41,7 @@ int main(void)
 	system("mode con cols=40 lines=20");
 	while (1)
 	{
-		printf("ÇëÑ¡ÔñÓÎÏ·¼¶±ğ£¨1~9,9µÄÄÑ¶È×î¸ß£©£º");
+		printf("è¯·é€‰æ‹©æ¸¸æˆçº§åˆ«ï¼ˆ1~9,9çš„éš¾åº¦æœ€é«˜ï¼‰ï¼š");
 		scanf("%d", &speed);
 		if (speed <= 9 || speed >= 1)
 			break;
@@ -49,27 +49,27 @@ int main(void)
 	
 	speed = 1000 - speed * 100;
 
-	init_game();	//³õÊ¼»¯ÓÎÏ·
+	init_game();	//åˆå§‹åŒ–æ¸¸æˆ
 
-	/* ÓÎÏ·µÄÖ÷Òª²¿·Ö */
+	/* æ¸¸æˆçš„ä¸»è¦éƒ¨åˆ† */
 	while (1)
 	{
 
-		/* ÓÃ×÷µ÷ÊÔÊ±ÏÔÊ¾Ëæ»úµãµÄ×ø±ê */
+		/* ç”¨ä½œè°ƒè¯•æ—¶æ˜¾ç¤ºéšæœºç‚¹çš„åæ ‡ */
 #if DEBUG
 		gotoxy(1, 1);
 		printf("%d,%d", randPoint.x, randPoint.y);
 #endif
 
-		Sleep(speed);		//ÓÃÓÚ¿ØÖÆÉßÒÆ¶¯µÄËÙ¶È
+		Sleep(speed);		//ç”¨äºæ§åˆ¶è›‡ç§»åŠ¨çš„é€Ÿåº¦
 
-		/* ¼üÅÌ²Ù¿Ø·½Ïò */
+		/* é”®ç›˜æ“æ§æ–¹å‘ */
 		if (kbhit())
 		{
 		
 			tmpDirection = getch();
 
-			/* Ìõ¼şÅĞ¶ÏÊÇ·ñ°´¼üÎªw£¬a£¬s£¬d£¬ÇÒÉß²»»á»ØÍ· */
+			/* æ¡ä»¶åˆ¤æ–­æ˜¯å¦æŒ‰é”®ä¸ºwï¼Œaï¼Œsï¼Œdï¼Œä¸”è›‡ä¸ä¼šå›å¤´ */
 			if (('w' == tmpDirection || 's' == tmpDirection || 'a' == tmpDirection || 'd' == tmpDirection) && 'w' + 's' != tmpDirection + direction && 'a' + 'd' != tmpDirection + direction)
 			{
 				direction = tmpDirection;
@@ -78,7 +78,7 @@ int main(void)
 		}
 
 
-		/* ÉßÍ·ÓëËæ»úµãÖØºÏ */
+		/* è›‡å¤´ä¸éšæœºç‚¹é‡åˆ */
 		if (randPoint.x == snake[1].x && randPoint.y == snake[1].y)
 		{
 			tmpBody = snake[length];
@@ -87,7 +87,7 @@ int main(void)
 
 			snake[length + 1] = tmpBody;
 			gotoxy(snake[length + 1].x, snake[length + 1].y);
-			printf("¨~");
+			printf("â–‡");
 			length++;
 
 			rand_point();
@@ -111,7 +111,7 @@ void init_game(void)
 {
 	int i = 0;
 	
-	/* Éú³ÉÒ»Ìõ³¤¶ÈÎª4µÄĞ¡Éß */
+	/* ç”Ÿæˆä¸€æ¡é•¿åº¦ä¸º4çš„å°è›‡ */
 	for(i = 1; i <= 4; i++)
 	{
 		snake[i].x = 21 - i * 2;
@@ -120,11 +120,11 @@ void init_game(void)
 	length = INIT_LENGTH;
 	print_snake();
 	
-	/* Ëæ»úÉú³ÉÒ»¸öµã */ 
+	/* éšæœºç”Ÿæˆä¸€ä¸ªç‚¹ */ 
 	rand_point();
 }
 
-/* ÀûÓÃgotoxyº¯Êı´òÓ¡³öÉß */
+/* åˆ©ç”¨gotoxyå‡½æ•°æ‰“å°å‡ºè›‡ */
 void print_snake(void)
 {
 	int i = 0;
@@ -132,11 +132,11 @@ void print_snake(void)
 	for(i = 1; i <= length; i++)
 	{
 		gotoxy(snake[i].x, snake[i].y);
-		printf("¨~");
+		printf("â–‡");
 	}
 }
 
-/* Ö±½Ó´Ó±ğÈËÄÇ¶ùÄÃÀ´ÓÃÁË£¬¿´²»¶®~~~~(>_<)~~~~ */
+/* ç›´æ¥ä»åˆ«äººé‚£å„¿æ‹¿æ¥ç”¨äº†ï¼Œçœ‹ä¸æ‡‚~~~~(>_<)~~~~ */
 void gotoxy(int x, int y)
 {
 	COORD pos;
@@ -146,14 +146,14 @@ void gotoxy(int x, int y)
 }
 
 
-/* Éú³ÉËæ»úµã£¬ Ëæ»úÖÖ×ÓÎª µ±Ç°Ê±¼ä x 189 */
+/* ç”Ÿæˆéšæœºç‚¹ï¼Œ éšæœºç§å­ä¸º å½“å‰æ—¶é—´ x 189 */
 void rand_point(void)
 {
 	int i = 0;
 
 	srand((int)time(0) * 182);
 
-	/* ÅĞ¶ÏËæ»úÉú³ÉµÄµãÊÇ·ñÓëÉßÉíÖØºÏ£¬ÈôÖØºÏ£¬ÔòÖØĞÂÉú³É */
+	/* åˆ¤æ–­éšæœºç”Ÿæˆçš„ç‚¹æ˜¯å¦ä¸è›‡èº«é‡åˆï¼Œè‹¥é‡åˆï¼Œåˆ™é‡æ–°ç”Ÿæˆ */
 	while (1)
 	{
 		randPoint.x = (int)(20 * rand() / RAND_MAX) * 2 + 1;
@@ -170,31 +170,31 @@ void rand_point(void)
 	}
 
 	gotoxy(randPoint.x, randPoint.y);
-	printf("¨~");
+	printf("â–‡");
 
 }
 
-/* ÒÆ¶¯£¬³ÌĞòÖĞ×îÖØÒªµÄ²¿·Ö */
+/* ç§»åŠ¨ï¼Œç¨‹åºä¸­æœ€é‡è¦çš„éƒ¨åˆ† */
 void move_snake(void)
 {
 	int i = 0;
 
-	/* ½«ÉßÉíÉÏÃ¿¸öµãµÄÖµ¸³¸øÏÂÒ»¸öµã */
+	/* å°†è›‡èº«ä¸Šæ¯ä¸ªç‚¹çš„å€¼èµ‹ç»™ä¸‹ä¸€ä¸ªç‚¹ */
 	for (i = length; i >= 2; i--)
 	{
 		snake[i] = snake[i - 1];
 	}
 
-	/* ÉßÍ·Ïòµ±Ç°·½ÏòÒÆ¶¯Ò»¸ñ */
+	/* è›‡å¤´å‘å½“å‰æ–¹å‘ç§»åŠ¨ä¸€æ ¼ */
 	switch (direction)
 	{
-	case 'w':snake[1].y -= 1; break;		//ÉÏ
-	case 's':snake[1].y += 1; break;	//ÏÂ
-	case 'a':snake[1].x -= 2; break;		//×ó
-	case 'd':snake[1].x += 2; break;	//ÓÒ
+	case 'w':snake[1].y -= 1; break;		//ä¸Š
+	case 's':snake[1].y += 1; break;	//ä¸‹
+	case 'a':snake[1].x -= 2; break;		//å·¦
+	case 'd':snake[1].x += 2; break;	//å³
 	}
 
-	/* ÅĞ¶ÏÊÇ·ñÓöµ½Ç½£¨¿ªÆô´©Ç½Ä£Ê½£© */
+	/* åˆ¤æ–­æ˜¯å¦é‡åˆ°å¢™ï¼ˆå¼€å¯ç©¿å¢™æ¨¡å¼ï¼‰ */
 	if (-1 == snake[1].x)
 	{
 		snake[1].x = 39;
@@ -212,7 +212,7 @@ void move_snake(void)
 		snake[1].y = 1;
 	}
 
-	/* ÅĞ¶ÏÊÇ·ñÒ§µ½×Ô¼º */
+	/* åˆ¤æ–­æ˜¯å¦å’¬åˆ°è‡ªå·± */
 	for (i = 5; i <= length; i++)
 	{
 		if (snake[i].x == snake[1].x && snake[i].y == snake[1].y)
@@ -227,5 +227,5 @@ void move_snake(void)
 
 	print_snake();
 	gotoxy(randPoint.x, randPoint.y);
-	printf("¨~");
+	printf("â–‡");
 }

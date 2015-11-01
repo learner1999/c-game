@@ -1,4 +1,4 @@
-//Æå×Ó ¡ñ ¡ğ
+ï»¿//æ£‹å­ â— â—‹
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,7 +7,7 @@
 
 int chessboard[N + 1][N + 1] = { 0 };
 
-//ÓÃÀ´¼ÇÂ¼ÂÖµ½Íæ¼Ò1»¹ÊÇÍæ¼Ò2
+//ç”¨æ¥è®°å½•è½®åˆ°ç©å®¶1è¿˜æ˜¯ç©å®¶2
 int whoseTurn = 0;
 
 void initGame(void);
@@ -17,12 +17,12 @@ int judge(int, int);
 
 int main(void)
 {
-	//³õÊ¼»¯ÓÎÏ·
+	//åˆå§‹åŒ–æ¸¸æˆ
 	initGame();
 
 	while (1)
 	{
-		//Ã¿´ÎÑ­»·×ÔÔö1£¬ÊµÏÖÍæ¼ÒÂÖÁ÷ÏÂ×Ó
+		//æ¯æ¬¡å¾ªç¯è‡ªå¢1ï¼Œå®ç°ç©å®¶è½®æµä¸‹å­
 		whoseTurn++;
 
 		playChess();
@@ -35,7 +35,7 @@ void initGame(void)
 {
 	char c;
 
-	printf("»¶Ó­^_^ÇëÊäÈëy½øÈëÓÎÏ·£º");
+	printf("æ¬¢è¿^_^è¯·è¾“å…¥yè¿›å…¥æ¸¸æˆï¼š");
 	c = getchar();
 	if ('y' != c && 'Y' != c)
 		exit(0);
@@ -57,9 +57,9 @@ void printChessboard(void)
 			else if (j == 0)
 				printf("%3d", i);
 			else if (1 == chessboard[i][j])
-				printf(" ¡ñ");
+				printf(" â—");
 			else if (2 == chessboard[i][j])
-				printf(" ¡ğ");
+				printf(" â—‹");
 			else
 				printf("  *");
 		}
@@ -73,13 +73,13 @@ void playChess(void)
 
 	if (1 == whoseTurn % 2)
 	{
-		printf("ÂÖµ½Íæ¼Ò1£¬ÇëÊäÈëÆå×ÓµÄÎ»ÖÃ£¬¸ñÊ½ÎªĞĞºÅ+¿Õ¸ñ+ÁĞºÅ£º");
+		printf("è½®åˆ°ç©å®¶1ï¼Œè¯·è¾“å…¥æ£‹å­çš„ä½ç½®ï¼Œæ ¼å¼ä¸ºè¡Œå·+ç©ºæ ¼+åˆ—å·ï¼š");
 		scanf("%d %d", &i, &j);
 		chessboard[i][j] = 1;
 	}
 	else
 	{
-		printf("ÂÖµ½Íæ¼Ò2£¬ÇëÊäÈëÆå×ÓµÄÎ»ÖÃ£¬¸ñÊ½ÎªĞĞºÅ+¿Õ¸ñ+ÁĞºÅ£º");
+		printf("è½®åˆ°ç©å®¶2ï¼Œè¯·è¾“å…¥æ£‹å­çš„ä½ç½®ï¼Œæ ¼å¼ä¸ºè¡Œå·+ç©ºæ ¼+åˆ—å·ï¼š");
 		scanf("%d %d", &i, &j);
 		chessboard[i][j] = 2;
 	}
@@ -90,9 +90,9 @@ void playChess(void)
 	if (judge(i, j))
 	{
 		if (1 == whoseTurn % 2)
-			printf("Íæ¼Ò1Ê¤£¡\n");
+			printf("ç©å®¶1èƒœï¼\n");
 		else
-			printf("Íæ¼Ò2Ê¤£¡\n");
+			printf("ç©å®¶2èƒœï¼\n");
 	}
 }
 
